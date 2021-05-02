@@ -1,19 +1,3 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-import os
-
-
-file_addr = os.path.abspath(__file__)
-file_dir = os.path.dirname(file_addr)
-
-def sample(request):
-    return HttpResponse("good evening")
-
-def samplehtml(request):
-    return HttpResponse("<marquee><h1>this is html tag response</h1></marquee>")
-
-def register(request):
-    data = """     
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +6,7 @@ def register(request):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body bgcolor="Lightskyblue">  
+<body bgcolor="blue">  
         <br>  
         <br>  
         <form>  
@@ -80,21 +64,3 @@ def register(request):
         </form>  
 </body>
 </html>
-    
-    """
-    return HttpResponse(data)
-
-def sampleregister(request):
-    file_data = open(r'C:\Users\User\sampleproject\sampleproject\register.html','r') 
-    data1 = file_data.read()
-    return HttpResponse(data1)
-
-def samplelogin(request):
-    file_data = os.path.join(file_dir, "login.html")
-    file_d = open(file_data, "r")
-    data1 =file_d.read()
-    return HttpResponse(data1)
-
-def signin(request):
-    return render(request,"signin.html")
-
